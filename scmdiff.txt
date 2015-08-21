@@ -1,0 +1,259 @@
+diff --git a/classes/CreatingAccount1.cls b/classes/CreatingAccount1.cls
+new file mode 100644
+index 0000000..9687207
+--- /dev/null
++++ b/classes/CreatingAccount1.cls
+@@ -0,0 +1,10 @@
++public Class CreatingAccount1
++{
++public Account createAccount(String name)  //method to create account
++{
++//
++Account acc2= new Account();
++acc2.Name = name;
++return acc2;
++}
++}
+\ No newline at end of file
+diff --git a/classes/CreatingAccount1.cls-meta.xml b/classes/CreatingAccount1.cls-meta.xml
+new file mode 100644
+index 0000000..9aeda45
+--- /dev/null
++++ b/classes/CreatingAccount1.cls-meta.xml
+@@ -0,0 +1,5 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<ApexClass xmlns="http://soap.sforce.com/2006/04/metadata">
++    <apiVersion>34.0</apiVersion>
++    <status>Active</status>
++</ApexClass>
+diff --git a/layouts/Add__c-Add Layout.layout b/layouts/Add__c-Add Layout.layout
+new file mode 100644
+index 0000000..a4c98b2
+--- /dev/null
++++ b/layouts/Add__c-Add Layout.layout
+@@ -0,0 +1,55 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<Layout xmlns="http://soap.sforce.com/2006/04/metadata">
++    <layoutSections>
++        <customLabel>false</customLabel>
++        <detailHeading>false</detailHeading>
++        <editHeading>true</editHeading>
++        <label>Information</label>
++        <layoutColumns>
++            <layoutItems>
++                <behavior>Required</behavior>
++                <field>Name</field>
++            </layoutItems>
++        </layoutColumns>
++        <layoutColumns>
++            <layoutItems>
++                <behavior>Edit</behavior>
++                <field>OwnerId</field>
++            </layoutItems>
++        </layoutColumns>
++        <style>TwoColumnsTopToBottom</style>
++    </layoutSections>
++    <layoutSections>
++        <customLabel>false</customLabel>
++        <detailHeading>false</detailHeading>
++        <editHeading>true</editHeading>
++        <label>System Information</label>
++        <layoutColumns>
++            <layoutItems>
++                <behavior>Readonly</behavior>
++                <field>CreatedById</field>
++            </layoutItems>
++        </layoutColumns>
++        <layoutColumns>
++            <layoutItems>
++                <behavior>Readonly</behavior>
++                <field>LastModifiedById</field>
++            </layoutItems>
++        </layoutColumns>
++        <style>TwoColumnsTopToBottom</style>
++    </layoutSections>
++    <layoutSections>
++        <customLabel>false</customLabel>
++        <detailHeading>false</detailHeading>
++        <editHeading>true</editHeading>
++        <layoutColumns/>
++        <layoutColumns/>
++        <layoutColumns/>
++        <style>CustomLinks</style>
++    </layoutSections>
++    <showEmailCheckbox>false</showEmailCheckbox>
++    <showHighlightsPanel>false</showHighlightsPanel>
++    <showInteractionLogPanel>false</showInteractionLogPanel>
++    <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
++    <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
++</Layout>
+diff --git a/objects/AddNew__c.object b/objects/AddNew__c.object
+new file mode 100644
+index 0000000..15cc1ee
+--- /dev/null
++++ b/objects/AddNew__c.object
+@@ -0,0 +1,70 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
++    <actionOverrides>
++        <actionName>Accept</actionName>
++        <type>Default</type>
++    </actionOverrides>
++    <actionOverrides>
++        <actionName>CancelEdit</actionName>
++        <type>Default</type>
++    </actionOverrides>
++    <actionOverrides>
++        <actionName>Clone</actionName>
++        <type>Default</type>
++    </actionOverrides>
++    <actionOverrides>
++        <actionName>Delete</actionName>
++        <type>Default</type>
++    </actionOverrides>
++    <actionOverrides>
++        <actionName>Edit</actionName>
++        <type>Default</type>
++    </actionOverrides>
++    <actionOverrides>
++        <actionName>Follow</actionName>
++        <type>Default</type>
++    </actionOverrides>
++    <actionOverrides>
++        <actionName>List</actionName>
++        <type>Default</type>
++    </actionOverrides>
++    <actionOverrides>
++        <actionName>New</actionName>
++        <type>Default</type>
++    </actionOverrides>
++    <actionOverrides>
++        <actionName>SaveEdit</actionName>
++        <type>Default</type>
++    </actionOverrides>
++    <actionOverrides>
++        <actionName>Tab</actionName>
++        <type>Default</type>
++    </actionOverrides>
++    <actionOverrides>
++        <actionName>View</actionName>
++        <type>Default</type>
++    </actionOverrides>
++    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
++    <deploymentStatus>Deployed</deploymentStatus>
++    <description>From sai</description>
++    <enableActivities>false</enableActivities>
++    <enableBulkApi>true</enableBulkApi>
++    <enableFeeds>false</enableFeeds>
++    <enableHistory>false</enableHistory>
++    <enableReports>false</enableReports>
++    <enableSharing>true</enableSharing>
++    <enableStreamingApi>true</enableStreamingApi>
++    <label>AddNew</label>
++    <listViews>
++        <fullName>All</fullName>
++        <filterScope>Everything</filterScope>
++        <label>All</label>
++    </listViews>
++    <nameField>
++        <label>AddNew Name</label>
++        <type>Text</type>
++    </nameField>
++    <pluralLabel>AddNew</pluralLabel>
++    <searchLayouts/>
++    <sharingModel>ReadWrite</sharingModel>
++</CustomObject>
+diff --git a/objects/Add__c.object b/objects/Add__c.object
+new file mode 100644
+index 0000000..91076b2
+--- /dev/null
++++ b/objects/Add__c.object
+@@ -0,0 +1,65 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
++    <actionOverrides>
++        <actionName>Accept</actionName>
++        <type>Default</type>
++    </actionOverrides>
++    <actionOverrides>
++        <actionName>CancelEdit</actionName>
++        <type>Default</type>
++    </actionOverrides>
++    <actionOverrides>
++        <actionName>Clone</actionName>
++        <type>Default</type>
++    </actionOverrides>
++    <actionOverrides>
++        <actionName>Delete</actionName>
++        <type>Default</type>
++    </actionOverrides>
++    <actionOverrides>
++        <actionName>Edit</actionName>
++        <type>Default</type>
++    </actionOverrides>
++    <actionOverrides>
++        <actionName>Follow</actionName>
++        <type>Default</type>
++    </actionOverrides>
++    <actionOverrides>
++        <actionName>List</actionName>
++        <type>Default</type>
++    </actionOverrides>
++    <actionOverrides>
++        <actionName>New</actionName>
++        <type>Default</type>
++    </actionOverrides>
++    <actionOverrides>
++        <actionName>SaveEdit</actionName>
++        <type>Default</type>
++    </actionOverrides>
++    <actionOverrides>
++        <actionName>Tab</actionName>
++        <type>Default</type>
++    </actionOverrides>
++    <actionOverrides>
++        <actionName>View</actionName>
++        <type>Default</type>
++    </actionOverrides>
++    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
++    <deploymentStatus>Deployed</deploymentStatus>
++    <description>From sai</description>
++    <enableActivities>false</enableActivities>
++    <enableBulkApi>true</enableBulkApi>
++    <enableFeeds>false</enableFeeds>
++    <enableHistory>false</enableHistory>
++    <enableReports>false</enableReports>
++    <enableSharing>true</enableSharing>
++    <enableStreamingApi>true</enableStreamingApi>
++    <label>Add</label>
++    <nameField>
++        <label>Add Name</label>
++        <type>Text</type>
++    </nameField>
++    <pluralLabel>Add</pluralLabel>
++    <searchLayouts/>
++    <sharingModel>ReadWrite</sharingModel>
++</CustomObject>
+diff --git a/package.xml b/package.xml
+new file mode 100644
+index 0000000..f2cd437
+--- /dev/null
++++ b/package.xml
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<Package xmlns="http://soap.sforce.com/2006/04/metadata">
++    <types>
++        <members>CreatingAccount1</members>
++        <name>ApexClass</name>
++    </types>
++    <types>
++        <members>AddNew__c</members>
++        <members>Add__c</members>
++        <name>CustomObject</name>
++    </types>
++    <types>
++        <members>Add__c-Add Layout</members>
++        <name>Layout</name>
++    </types>
++    <version>31.0</version>
++</Package>
